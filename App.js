@@ -1,20 +1,11 @@
-import React from "react";
-import Container from './Container'
 import {
-  Text,
-  Link,
-  HStack,
-  Center,
-  Heading,
-  Switch,
-  useColorMode,
-  NativeBaseProvider,
-  extendTheme,
-  VStack,
-  Box,
+  extendTheme, NativeBaseProvider
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
+import React from "react";
+import 'react-native-gesture-handler';
+import Container from './Container';
+import { QueryClient, QueryClientProvider } from "react-query";
+
 
 // Define the config
 const config = {
@@ -24,13 +15,16 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
+const client = new QueryClient();
+
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      
-      <Container/>
-    </NativeBaseProvider>
+    <QueryClientProvider client={client}>
+        <NativeBaseProvider>
+          <Container/>
+        </NativeBaseProvider>
+    </QueryClientProvider>
   );
 }
 

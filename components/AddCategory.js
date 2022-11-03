@@ -8,7 +8,7 @@ import { TouchableOpacity,TextInput } from "react-native";
 
 export default function AddCategory() {
   return (
-    <Box bg="primary.400" flex={1} alignItems="center" >
+    <Box bg="white" flex={1} alignItems="center" >
    
     <Text bold style={{padding:20,paddingTop:80,fontSize:30,height:120 ,width:300,marginRight:50}}>Add Category</Text>
   
@@ -21,10 +21,10 @@ export default function AddCategory() {
         <Text bold style={{padding:20,paddingTop:80,fontSize:30,height:120 ,width:300,marginRight:50}}>List Category</Text>
         
       
-    <Text >
+    <Text style={{marginTop: 20,  marginRight:100}}>
 
-        <Button size="sm" >Study   </Button>
-          <Button size="sm" colorScheme="secondary" style={{marginHorizontal:20}}>
+        <Button size="sm" marginRight={20}>Study   </Button>
+        <Button size="sm" colorScheme="secondary" style={{marginHorizontal:20}}>
             HomeWork
           </Button>
           <Button size="sm" >
@@ -33,7 +33,7 @@ export default function AddCategory() {
     </Text>
 
 
-
+    
         
 
     </Box>
