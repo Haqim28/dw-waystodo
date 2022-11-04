@@ -20,11 +20,10 @@ const client = new QueryClient();
 
 export default function App() {
   return (
-    <QueryClientProvider client={client}>
         <NativeBaseProvider>
           <Container/>
         </NativeBaseProvider>
-    </QueryClientProvider>
+
   );
 }
 

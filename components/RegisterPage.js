@@ -19,7 +19,7 @@ export default function RegisterPage({navigation}) {
     });
   };
 
-  const handleSubmit = (async (e) => {
+  const handleSubmit = (async () => {
     try {
       const response = await API.post("/auth/register", form);
       console.log(response);

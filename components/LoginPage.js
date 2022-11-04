@@ -1,10 +1,9 @@
 
+import { Box, Image, Input, Text } from "native-base";
 import * as React from "react";
-import { Text, Box,Image, Button, Input } from "native-base";
-import LoginIcon from '../assets/loginIcon.png'
-import { TouchableOpacity,TextInput } from "react-native";
-import { useMutation } from 'react-query';   
-import {API} from "./config/api"
+import { TouchableOpacity } from "react-native";
+import LoginIcon from '../assets/loginIcon.png';
+import { API } from "./config/api";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -36,6 +35,7 @@ export default function LoginPage({navigation}) {
 
     if (response) {
       await AsyncStorage.setItem('token', response.data.token);
+      await AsyncStorage.setItem("user_id",response.data.user._id);
     }
       
     const token = await AsyncStorage.getItem('token');
@@ -47,7 +47,7 @@ export default function LoginPage({navigation}) {
     }
     } catch (e) {
       console.log(e);
-      console.log("this error ");
+      console.log("Ada yang salah ");
       alert("Salah email atau password");
     }
   };

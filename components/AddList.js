@@ -3,9 +3,38 @@ import * as React from "react";
 import { Text, Box,Image, Button, Input,Select,FormControl,CheckIcon,TextArea } from "native-base";
 import LoginIcon from '../assets/loginIcon.png'
 import { TouchableOpacity,TextInput } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default function AddList() {
+
+  const getCategory = async() =>{
+    try {
+        const token = await AsyncStorage.getItem('token');
+        const user_id = await AsyncStorage.getItem('user_id');
+        setCategory({
+          user_id
+        })
+        if (token === null) {
+            navigation.navigate("Login")
+        }
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            },
+        };
+        const response = await API.get(`/Categorys?user_id=${user_id}`, config);
+        
+        setdataCategory(response.data)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+React.useEffect(()=> {
+    getCategory()
+},[])
   
   return (
     <Box bg="white" flex={1} alignItems="center" >

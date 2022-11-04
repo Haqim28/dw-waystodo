@@ -24,12 +24,9 @@ export default function ListTodo({navigation}) {
               Authorization: 'Bearer ' + token 
             },
         };
-        
-
-        const response = await API.get("/Users", config)       
+        const response = await API.get("/Users",config)       
         setData(response.data)
-        console.log(response.data);
-    
+        console.log(response);
     } catch (error) {
         console.log(error);    
     }
