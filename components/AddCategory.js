@@ -1,13 +1,10 @@
 
-import * as React from "react";
-import { Text, Box,Image, Button, Input, FlatList, View } from "native-base";
-import LoginIcon from '../assets/loginIcon.png'
-import { TouchableOpacity,TextInput } from "react-native";
-import { API } from "./config/api";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { NavigationHelpersContext } from "@react-navigation/native";
-import { ViewBase } from "react-native";
+import { Box, FlatList, Text, View } from "native-base";
+import * as React from "react";
+import { TextInput, TouchableOpacity } from "react-native";
+import { API } from "./config/api";
 
 
 
@@ -49,8 +46,6 @@ export default function AddCategory() {
       alert("Gagal mendaftar kategori");
     }
   });
-
-  
   const getCategory = async() =>{
     try {
         const token = await AsyncStorage.getItem('token');
@@ -68,7 +63,6 @@ export default function AddCategory() {
             },
         };
         const response = await API.get(`/Categorys?user_id=${user_id}`, config);
-        
         setdataCategory(response.data)
     } catch (error) {
         console.log(error);
@@ -82,9 +76,8 @@ React.useEffect(()=> {
 const _dataCategoryRender = ({ item })=>{
   return (
           <View style={{margin:20,backgroundColor:"red" , color : "white"}}>
-
           <Text bold style={{color:"white"}}>
-          {item.name}     </Text>
+          {item.name}</Text>
           </View>
   );
 };
@@ -116,9 +109,7 @@ const _dataCategoryRender = ({ item })=>{
                         data={dataCategory}
                         renderItem={_dataCategoryRender}
                         keyExtractor={(item) => item}
-                        
                     />
-        
     </Text>
 
 
