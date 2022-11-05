@@ -6,15 +6,11 @@ import * as React from "react";
 import { TextInput, TouchableOpacity } from "react-native";
 import { API } from "./config/api";
 
-
-
-
 export default function AddCategory() {
   
   const [category, setCategory] = React.useState({user_id : null});
   const [dataCategory,setdataCategory] = React.useState([])
   console.log(category);
-  
 
   function handleChange(name,value) {
     setCategory({

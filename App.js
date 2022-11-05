@@ -15,8 +15,6 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
-const client = new QueryClient();
-
 
 export default function App() {
   return (

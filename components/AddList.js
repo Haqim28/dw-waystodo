@@ -18,7 +18,6 @@ import axios from "axios";
 
 export default function AddList() {
   const [dataCategory, setdataCategory] = React.useState([]);
-
   const getCategory = async () => {
     try {
       const token = await AsyncStorage.getItem("token");
@@ -45,7 +44,7 @@ export default function AddList() {
 
 // //============================For add to table List=============================================
 const [list, setList] = React.useState({user_id : null , status : null});
-console.log(list);
+// console.log(list);
 
 function handleChange(name,value) {
   setList({
@@ -69,7 +68,7 @@ const handleSubmit = (async () => {
               };
               const response = await axios.post(`https://api.kontenbase.com/query/api/v1/63bf71ed-c215-42ca-bf94-a3137d09dacf/List`, list,config);
               alert(`Selamat  Kategori kamu bertambah`);
-              console.log(list);
+              // console.log(list);
   } catch (e) {
     console.log(e);
     console.log("error list nya",list);
