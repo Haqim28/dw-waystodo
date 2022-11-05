@@ -98,12 +98,9 @@ const srcbyName = async() =>{
   }
 }
 
-
-
-
 const _dataListRender = ({ item })=>{
   return (
-            <Card w={300} h={160} borderRadius={15} mt={5} style={{backgroundColor:"#DEFFFF"}} >
+            <Card w={300} h={160} borderRadius={15} mt={5} style={{backgroundColor:"#DEFFFF"}} onPress= {navigation.navigate("DetailList")}>
               <View style={{flexDirection : "row"}}>  
                 <Text  bold style={{width:200 , height:20}}>{item.name}</Text>
                 <Button mt={1} bold style={{height:40, borderRadius:17}}> {item.category}  </Button>

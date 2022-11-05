@@ -5,6 +5,7 @@ import FirstPage from './components/FirstPage';
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import AddCategory from "./components/AddCategory";
+import DetailList from "./components/DetailList"
 import AddList from "./components/AddList";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -13,11 +14,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {Ionicons} from '@expo/vector-icons';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator()
-
-
-
-
-
 const MyTab = () => {
   return(
     <Tab.Navigator
@@ -70,59 +66,18 @@ const MyTab = () => {
     </Tab.Navigator>
   )
 }
-
 export default function Container() {
-
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        
-      <Stack.Screen
-          name="Home"
-          options={{
-            headerShown: false,
-          }}
-          component={FirstPage}  
-            />
-
-        <Stack.Screen
-          name="LoginPage"
-          component={LoginPage}
-          options={{
-            headerShown: false,
-          }}
-          />
-
-
-
-          <Stack.Screen
-          name="RegisterPage"
-          component={RegisterPage}
-          options={{
-            headerShown: false,
-          }}
-          />
-
-          <Stack.Screen
-          name="AddCategory"
-          component={AddCategory}
-          options={{
-            headerShown: false,
-          }}
-          />
-
-          <Stack.Screen
-          name="ListTodo"
-          component={MyTab}
-          options={{
-            headerShown: false,
-          }}
-          />
-         
+          <Stack.Screen name="Home" options={{headerShown: false,}}component={FirstPage}  />
+          <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false,}}/>
+          <Stack.Screen name="RegisterPage" component={RegisterPage} options={{ headerShown: false, }}/>
+          <Stack.Screen component={AddCategory} name="AddCategory" options={{ headerShown: false, }}/>
+          <Stack.Screen name="ListTodo" component={MyTab} options={{headerShown: false,}}/>
+          <Stack.Screen name="DetailList" component={DetailList} options={{headerShown: false,}}/>
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 
