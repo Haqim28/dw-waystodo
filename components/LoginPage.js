@@ -36,6 +36,8 @@ export default function LoginPage({navigation}) {
     if (response) {
       await AsyncStorage.setItem('token', response.data.token);
       await AsyncStorage.setItem("user_id",response.data.user._id);
+      await AsyncStorage.setItem("name",response.data.user.firstName);
+
     }
       
     const token = await AsyncStorage.getItem('token');
